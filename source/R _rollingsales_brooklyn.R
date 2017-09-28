@@ -62,12 +62,12 @@ dim(bk.homes)
 #   as above "bk.sale"
 plot(bk.homes$gross.square.feet, bk.homes$sale.price.n)
 plot(log10(bk.homes$gross.square.feet.n),log10(bk.homes$sale.price.n))
-summary(bk.homes[which(bk.homes$sale.price.n<100000),])
+
 
 ## remove outliers that seem like they weren't actual sales
 bk.homes$outliers <- (log10(bk.homes$sale.price.n) <=5) + 0
 
 # TODO: find out homes that meets bk.homes$outliers==0  MT this nees work!!!
 bk.homes <- bk.homes[which(bk.homes$outlier==0),]
-
+summary(bk.homes[which(bk.homes$sale.price.n<100000),])
 plot(log10(bk.homes$gross.square.feet.n),log10(bk.homes$sale.price.n))

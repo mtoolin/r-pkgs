@@ -1,0 +1,37 @@
+---
+title: "Brooklyn Home Sales"
+author: "Michael Toolin"
+date: "September 27, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Brooklyn Home Sales Data
+
+This document displays some of the interesting data from the homework.  The source for
+the home work can be found under source/R-rollingsales-brooklyn.r
+
+## The five quartile summary of the price ofhomes
+### 1 family, 2 family and 3 family
+
+
+```{r, echo=FALSE}
+bk <- read.csv('../data/rollingsales_brooklyn.csv',skip=4,header=TRUE)
+bk$SALE.PRICE.N <- as.numeric(gsub("[^[:digit:]]","", bk$SALE.PRICE))
+names(bk) <- tolower(names(bk)) # make all variable names lower case
+bk.sale <- bk[bk$sale.price.n!=0,]
+bk.homes <- bk.sale[which(grepl("FAMILY",bk.sale$building.class.category)),]
+summary(bk.homes$sale.price.n)
+```
+
+## The five quartile summary of size of homes
+### 1 family, 2 family, 3 family
+```{r, echo=FALSE}
+bk$gross.square.feet.n <- as.numeric(gsub("[^[:digit:]]","", bk$gross.square.feet))
+summary(bk$gross.square.feet.n)
+```
+
+
