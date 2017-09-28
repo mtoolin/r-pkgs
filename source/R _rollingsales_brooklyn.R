@@ -2,7 +2,7 @@
 # Taken from pages 49-50 of O'Neil and Schutt
 
 #require(gdata)
-#require(plyr) #Added by Monnie McGee
+require(plyr) #Added by Monnie McGee
 #install the gdata and plyr packages and load in to R.
 
 #setwd("C:/MSDS 6306-FALL2016/404/Live session 06")
